@@ -1,0 +1,324 @@
+search-body {background-color: #fff7ed;}
+ul {
+	display: flex;
+	font-weight: 600;
+}
+
+a {
+	color:black;
+}
+
+
+<!--상단 검색결과 -->
+
+search-nav {margin: auto;}
+
+.search-searchresult {
+	margin: 30px auto; /* 상하 마진 30px, 좌우 마진 자동(중앙정렬) */
+	padding: 10px;
+	width: 1200px;
+	height: 200px;
+	background-color: #f2f1f1; /* 색상 전부 연하게 바꿨음 */
+	text-align: center; /* div 안 내용물 중앙정렬 */
+}
+
+.search-searchresult-inner {
+	margin: 45px auto;
+}
+
+.search-searchresult-inner>p {
+	font-size: 25px;
+	font-weight: bold;
+}
+.searches{
+	display:inline-flex;
+	text-align: center;
+	line-height: center;
+}
+.search-searchBar {
+	width: 300px;
+	height: 35px;
+	background-color: #f2f1f1;
+	margin:0px 5px;
+	padding-left:10px;
+}
+
+#search-btn{
+	width: 60px;
+  	height: 35px;
+  	background-color: rgb(251, 188, 4);
+  	border: 0px;
+  	font-weight: 800;
+  	font-size: 15px;
+  	margin:0px 5px;
+  	border-radius: 4px;
+}
+
+#search-btn:hover{
+	background-color: black;
+  	color:white;
+  	transition: .1s ease-in;
+}
+
+
+<!--추천검색어-->
+.search-container{
+	width:1200px; 
+	margin: 0 auto;
+	text-align: center;
+	display: inline-block;
+}
+.search-title{ font-size: 25px; font-weight: 900;}
+
+.search-mid1-1-button {
+	width: 130px;
+	height: 45px;
+	font-size: 18px;
+	font-weight: 600;
+	border: 3px solid rgb(251, 188, 4);
+	background-color: white;
+	border-radius: 25px;
+	text-align: center;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+.search-mid1-1-button:hover {
+	background-color: black;
+	border: 3px solid black;
+	color: white;
+	transition: .1s ease-in;
+}
+
+<!--탭기능-->
+
+.board{
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+ul,li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 5px;
+}
+a{background-color: transparent;}
+.container {
+  margin: 0 auto;
+  clear: both;
+  overflow: hidden;
+}
+.tab-container {
+  margin-top: 40px;
+  display: flex;
+  margin-bottom: 40px;
+}
+.tab-container__item {
+  cursor: pointer;
+  background-color: white;
+  width: 280px;
+  height:50px;
+  border: solid 1px rgb(251, 188, 4);
+  text-align: center;
+}
+.tab-container__item--title{
+	text-align: center;
+	margin:10px 0px;
+}
+
+.tab-container__item--title{margin: 10px 0px;}
+
+.tab-container__item:hover .tab-container__item--title {
+  transition: color 0.4s ease-in-out;
+}
+.tab-container__item.active {
+  background-color: rgb(251, 188, 4);
+  color: balck;
+  font-size: 20px;
+  font-weight: 900;
+}
+.tab-container__item.active .tab-container__item--title {
+  color: black;
+}
+.tab-container__item.active:hover {
+  background-color:  rgb(251, 188, 4);
+  transition: background-color 0.4s ease-in-out;
+}
+.tab-container__item.active:hover .tab-container__item--title {
+  color: #fff;
+  transition: color 0.4s ease-in-out;
+}
+.tab-container__item--title {
+  display: inline-block;
+  color: rgb(80, 79, 79);
+  font-weight: 700;
+  text-decoration: none;
+  margin: 15px;
+  font-size: 18px;
+}
+.content-container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.content-container__content {
+  display: none;
+}
+.content-container__content.target {
+  display: block;
+}
+
+
+.search{
+  float: right;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+label{
+  font-size: 18px;
+  margin: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.input_text{
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+.input_text:focus{ border: 1px solid  rgb(251, 188, 4);}
+
+.board-table{
+  width: 1200px;
+  border-top: 3px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+.table-header{
+  padding: 10px 0px;
+  border-bottom: 1px solid black;
+}
+
+.board-content{
+  text-align: left;
+  padding: 25px 0px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+}
+.board-title{
+  padding-left: 20px;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.table-buttons{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.table-button{
+  border-radius: 0px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid gray;
+  margin: 30px 0px;
+  width:40px;
+  height: 30px;
+  font-weight: 700;
+}
+
+
+.search-img{
+	width: 150px;
+	hieght: auto;
+}
+/* 미니 게시판  */
+
+
+
+/* 위로가기 버튼*/
+#goingTop {
+    position: fixed;
+    right: 2%;
+    bottom: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #6699cc;
+    color: #ffffff;
+    font-size: 25px;
+    box-shadow: 0px 0px 5px #3973ac;
+    cursor: pointer;
+}
+
+/*예매취소,고객센터 */
+.bnr-bottom-wrap {
+  width: 100%;
+  background: white;
+}
+.bnr-bottom {
+  width: 1200px;
+  display: table;
+  margin: 0px auto;
+  background-color: white;
+  display: flex;
+}
+.bnr-bottom-01, .bnr-bottom-02{
+  background-color: white;
+}
+.icon-container{
+  background-color: white;
+  padding: 20px;
+  border: 2px solid rgb(151, 151, 151);
+  border-radius: 50%;
+}
+.fa-phone-volume, .fa-pen-to-square{
+  font-size: 30px;
+  background-color: white;
+  color: rgb(151, 151, 151);
+}
+.bnr-bottom .bnr-bottom-01 {
+  display: flex;
+  align-items: center;
+  padding-left: 120px;
+  position: relative;
+  border-right: 1px solid lightgray;
+  margin: 15px 0px;
+}
+
+
+.bnr-bottom .bnr-bottom-02 {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  margin: 15px 0px;
+}
+.bnr-bottom > div {
+  width: 50%;
+  height: 120px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.bottom-title{
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+.bottom-sub{
+  background-color: white;
+  font-size: 15px;
+  display: block;
+}
+.info-container{
+  background-color: white;
+  margin-left: 20px;
+}

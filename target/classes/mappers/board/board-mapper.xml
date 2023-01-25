@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.multi.mvc.board.model.mapper.BoardMapper">
+
+	<resultMap type="Board" id="boardListResultMap">
+		<id property="bno" column="bno"/>
+		<result property="boardType" column="board_type"/>
+		<result property="writerNo" column="writer_no"/>
+		<result property="userId"	 column="USER_ID"/>
+		<result property="boardTitle" column="board_title"/>
+		<result property="boardContent" column="board_content"/>
+		<result property="originalFileName" column="ORIGINAL_FILENAME"/>
+		<result property="renamedFileName" column="RENAMED_FILENAME"/>
+		<result property="readCount" column="READCOUNT"/>
+		<result property="createDate" column="CREATE_DATE"/>
+		<result property="modifyDate" column="MODIFY_DATE"/>
+	</resultMap>
+
+	<resultMap type="BOARDREPLY" id="boardReplyResultMap">
+		<id 	property="replyNo"		column="REPLY_NO"/>
+		<result property="boardNo" 		column="BOARD_NO"/>
+		<result property="userNo" 		column="USER_NO"/>
+		<result property="userId" 		column="USER_ID"/>
+		<result property="content" 		column="CONTENT"/>
+		<result property="createDate" 	column="CREATE_DATE"/>
+		<result property="modifyDate" 	column="MODIFY_DATE"/>
+	</resultMap>
+	
+
+	<resultMap type="Board" id="boardDetailResultMap" extends="boardListResultMap">
+		<collection property="replies" javaType="arrayList" columnPrefix="R_" 
+												resultMap="boardReplyResultMap"/>
+	</resultMap>
+	
+	<!-- MySQL의 페이징 기능을 활용한 코드 -->
+	<select id="selectBoardList" resultMap="boardListResultMap" parameterType="map">
+		SELECT  
+			B.bno, B.board_type, B.board_title, U.USER_ID, B.CREATE_DATE, B.ORIGINAL_FILENAME, B.READCOUNT, B.STATUS
+		FROM BOARD B JOIN USERS U ON(B.writer_no = U.USER_NO) 
+		WHERE 1 = 1 
+		AND B.STATUS = 'Y'
+		AND B.board_type LIKE '${boardType}'
+		<if test="writer != null">
+			AND U.USER_ID LIKE '%${writer}%' 
+		</if>		
+		<if test="title != null">
+			AND B.board_title LIKE '%${title}%' 
+		</if>		
+		<if test="content != null">
+			AND B.board_content LIKE '%${content}%' 
+		</if>		
+		ORDER BY B.bno DESC LIMIT ${limit} OFFSET ${offset}
+	</select>
+	
+	
+	<select id="selectBoardCount" resultType="int" parameterType="map">
+		SELECT  
+			COUNT(*)
+		FROM BOARD B JOIN USERS U ON(B.writer_no = U.USER_NO)
+		WHERE B.STATUS = 'Y'
+		AND B.board_type LIKE '${boardType}'
+		<if test="writer != null">
+			AND U.USER_ID LIKE '%${writer}%' 
+		</if>		
+		<if test="title != null">
+			AND B.board_title LIKE '%${title}%' 
+		</if>		
+		<if test="content != null">
+			AND B.board_content LIKE '%${content}%' 
+		</if>		
+	</select>
+	
+	<select id="selectBoardByNo" parameterType="int" resultMap="boardDetailResultMap">
+		SELECT  
+			B.bno, B.board_title, U.USER_ID, B.READCOUNT, B.board_type, B.ORIGINAL_FILENAME, B.RENAMED_FILENAME, B.board_content, B.CREATE_DATE, B.MODIFY_DATE,
+			R.REPLY_NO AS R_REPLY_NO, 
+			R.BOARD_NO AS R_BOARD_NO, 
+			R.CONTENT  AS R_CONTENT, 
+			U2.USER_ID  AS R_USER_ID, 
+			R.CREATE_DATE  AS R_CREATE_DATE, 
+			R.MODIFY_DATE  AS R_MODIFY_DATE
+		FROM BOARD B
+		JOIN USERS U ON(B.WRITER_NO = U.USER_NO)
+		LEFT OUTER JOIN BOARDREPLY R ON (B.bno = R.BOARD_NO)
+		LEFT OUTER JOIN USERS U2 ON (R.USER_NO = U2.USER_NO)
+		WHERE B.STATUS = 'Y' AND B.bno = #{bno}
+	</select>
+	
+	
+	<insert id="insertBoard" parameterType="Board">
+		INSERT INTO BOARD(
+			bno, board_type, WRITER_NO, board_title,
+			board_content, ORIGINAL_FILENAME,
+			RENAMED_FILENAME, READCOUNT, STATUS,
+			CREATE_DATE, MODIFY_DATE	
+		) VALUES (
+			0, #{boardType} , #{writerNo}, #{boardTitle}, 
+			#{boardContent}, #{originalFileName}, 
+			#{renamedFileName}, DEFAULT, DEFAULT, 
+			DEFAULT, DEFAULT		
+		)
+	</insert>
+	
+	<insert id="insertReply" parameterType="BoardReply">
+		INSERT INTO BOARDREPLY(
+				REPLY_NO, BOARD_NO, USER_NO, 
+				CONTENT, STATUS, CREATE_DATE, MODIFY_DATE) 
+			VALUES(
+				0, #{boardNo}, #{userNo}, #{content}, 
+				DEFAULT, DEFAULT, DEFAULT
+			)
+	</insert>
+
+	
+	<update id="updateBoard" parameterType="Board">
+		UPDATE BOARD
+		SET
+			board_title=#{boardTitle},
+			board_content=#{boardContent},
+			<if test="originalFileName != null">
+				ORIGINAL_FILENAME=#{originalFileName},
+			</if>
+			<if test="renamedFileName != null">
+				RENAMED_FILENAME=#{renamedFileName},
+			</if>
+			MODIFY_DATE = CURRENT_TIMESTAMP
+			WHERE bno=#{bno}
+	</update>
+	
+	<update id="updateReadCount" parameterType="map">
+		UPDATE BOARD SET READCOUNT=#{readCount} WHERE bno=#{bno}
+	</update>
+	
+	<update id="deleteBoard" parameterType="int">
+		UPDATE BOARD SET STATUS='N' WHERE bno=#{bno}
+	</update>
+	
+	<delete id="deleteReply" parameterType="int">
+		DELETE FROM BOARDREPLY WHERE REPLY_NO = #{replyNo}
+	</delete>
+
+	<update id="updateReply" parameterType="BoardReply">
+		UPDATE BOARDREPLY SET CONTENT = #{content} WHERE REPLY_NO = #{replyNo}
+	</update>
+	
+
+</mapper>

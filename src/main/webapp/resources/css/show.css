@@ -1,0 +1,62 @@
+@charset "UTF-8";
+:root{
+	    --bs-body-bg: #fff7ed;
+}
+.center {
+	width: 1000px;
+	height:42px;
+	margin-bottom :20px;
+	margin-right:18px;
+}
+
+.btn_color {
+	background: #fbbc04;
+	border:0;
+	width:80px;
+	height:40px;
+}
+
+
+ 
+.table {
+    border: 1px solid black;
+    table-layout: fixed;
+    word-break: break-all;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    
+}
+
+.table tr:nth-child(1) th:nth-child(n+2):nth-child(n+2){
+	border: 1px solid #ffffff;
+	
+}
+.table tr:nth-child(3) th:nth-child(n+2):nth-child(n+2){
+	border: 1px solid #ffffff;
+
+}
+.table tr:first-child th:first-child{
+	text-align: center;
+	vertical-align: middle;
+	
+	}
+	
+.table tr:nth-child(3) th:first-child{
+	text-align: center;
+	vertical-align: middle;
+	
+	}	
+
+.table tr:nth-child(5) th:first-child{
+	text-align: center;
+	vertical-align: middle;
+	
+	}	
+	
+.line{border-bottom:1px solid red;}
+
+.calender {
+	width: 150px;
+	height:25px;
+}

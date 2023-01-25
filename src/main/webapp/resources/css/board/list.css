@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Noto+Sans+KR:wght@100;300;400;500;700&family=Paytone+One&family=Secular+One&display=swap');
+
+
+body{
+	background-color: rgb(255, 247, 237);
+	margin: 0px;
+  	padding: 0px;
+  	box-sizing: border-box;
+  	text-aglin:center;
+  	text-decoration: none;
+	color: black;
+}
+
+#board-title{
+	text-decoration: none;
+	color:black;
+}
+
+.file-img{
+	max-height: 25px;
+	max-width: 25px;
+}
+.board-show{
+  text-decoration: none;
+  color: black;
+}
+.title {
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  font-weight: 600;
+  margin: 40px;
+  margin-top: 60px;
+  margin-bottom: 0px;
+  font-size: 45px;
+}
+.fa-angle-left,.fa-angle-right{ color: gray;}
+
+.box {
+	display: inline-block;
+	text-align: center;
+	line-height: 150px;
+}
+
+.board{
+  width: 1200px;
+  margin: 0px auto;
+  padding-top: 10px;
+
+}
+
+.container{
+	margin: 0 auto;
+}
+
+.write{
+	margin:10px;
+	margin-top:70px;
+}
+ul,li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 5px;
+}
+a{background-color: transparent;}
+
+
+.search{
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+label{
+  font-size: 18px;
+  margin: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.input_text{
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+  padding-left: 10px;
+}
+.input_text:focus{ border: 1px solid  rgb(251, 188, 4);}
+
+button{
+  width: 60px;
+  height: 36px;
+  background-color: rgb(251, 188, 4);
+  border: 0px;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 2px;
+  border-radius: 4px;
+}
+button:hover{
+  background-color: black;
+  color:white;
+  transition: .1s ease-in;
+}
+ button:disabled {
+  background-color:lightgray;
+  color:black;
+ }
+
+
+.board-table{
+  width: 100%;
+  border-top: 3px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+.table-header{
+  padding: 10px 0px;
+  border-bottom: 1px solid black;
+  text-align: center !important;
+}
+
+.board-content{
+  text-align: center;
+  padding: 25px 0px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+}
+.board-title{
+  text-align: left;
+  padding-left: 50px;
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.table-buttons{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.table-button{
+  border-radius: 0px;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid gray;
+  margin: 30px 0px;
+  width:40px;
+  height: 30px;
+  font-weight: 700;
+}
+
+.bnr-bottom-wrap {
+  width: 100%;
+  background: white;
+}
+.bnr-bottom {
+  width: 1200px;
+  display: table;
+  margin: 0px auto;
+  background-color: white;
+  display: flex;
+}
+.bnr-bottom-01, .bnr-bottom-02{
+  background-color: white;
+}
+.icon-container{
+  background-color: white;
+  padding: 20px;
+  border: 2px solid rgb(151, 151, 151);
+  border-radius: 50%;
+}
+.fa-phone-volume, .fa-pen-to-square{
+  font-size: 30px;
+  background-color: white;
+  color: rgb(151, 151, 151);
+}
+.bnr-bottom .bnr-bottom-01 {
+  display: flex;
+  align-items: center;
+  padding-left: 120px;
+  position: relative;
+  border-right: 1px solid lightgray;
+  margin: 15px 0px;
+}
+
+
+.bnr-bottom .bnr-bottom-02 {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  margin: 15px 0px;
+}
+.bnr-bottom > div {
+  width: 50%;
+  height: 120px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.bottom-title{
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+.bottom-sub{
+  background-color: white;
+  font-size: 15px;
+  display: block;
+}
+.info-container{
+  background-color: white;
+  margin-left: 20px;
+}

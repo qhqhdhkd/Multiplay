@@ -1,0 +1,164 @@
+ul {
+	display: flex;
+	font-weight: 600;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-bottom: 5px;
+}
+
+.container {
+	padding-top: 30px;
+	width: 1200px;
+}
+
+#board-title {
+	text-decoration: none;
+	color: black;
+}
+
+.ranking {
+	width: 1200px;
+	margin: 0px auto;
+	padding-top: 10px;
+}
+
+.genre-1 {
+	margin-left: 20px;
+}
+
+.genre-select-1 {
+	padding-top: 20px;
+}
+
+.genre-button-1 {
+	width: 960px;
+	height: 80px;
+	/* background-color: rgb(152, 101, 156); */
+}
+.genre-button-1.active {
+	background-color: black;
+	color:white;
+}
+
+.genre-middle-select {
+	list-style: none;
+	padding-top: 20px;
+}
+
+a:hover {
+	font-weight: 1500;
+	color: black;
+}
+
+.genre-1 {
+	font-size: 20px;
+	color: black;
+}
+
+.genre-1:hover {
+	color: black;
+}
+
+.tab-container {
+	display: flex;
+}
+
+
+
+.genre-button-1 {
+	width: 100px;
+	height: 40px;
+	font-size: 15px;
+	font-weight: 600;
+	border: 3px solid rgb(251, 188, 4);
+	background-color: white;
+	border-radius: 25px;
+	text-align: center;
+	margin-top: 15px;
+	margin-left: 20px;
+}
+
+.genre-button-1:hover {
+	background-color: #fff7ed;
+	color: black;
+	font-weight: 900;
+	transition: .1s ease-in;
+}
+
+.genre-block {
+	margin-right: 30px;
+}
+
+.select-date {
+	padding-top: 50px;
+	font-size: 30px;
+	text-align: center;
+}
+
+.ranking-list {
+	margin-bottom: 50px;
+}
+
+.ranking-table {
+	width: 100%;
+	border-top: 3px solid #ccc;
+	border-bottom: 1px solid gray;
+	border-collapse: collapse;
+	margin-top: 10px;
+	font-size: 15px;
+}
+
+.ranking-content {
+	text-align: center;
+	padding: 25px 0px;
+	border-bottom: 1px solid gray;
+	font-size: 15px;
+}
+
+.table-header {
+	padding: 10px 0px;
+	border-bottom: 1px solid gray;
+	text-align: center !important;
+}
+
+.ranking-img {
+	width: 150px;
+	height: 200px;
+}
+
+.ranking-place {
+	font-color: black;
+	font-style: strong;
+}
+
+.btn {
+	width: 120px;
+	height: 45px;
+	text-align: center;
+}
+
+#goingTop {
+	position: fixed;
+	right: 2%;
+	bottom: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: none;
+	background-color: #6699cc;
+	color: #ffffff;
+	font-size: 25px;
+	box-shadow: 0px 0px 5px #3973ac;
+	cursor: pointer;
+}
+
+.calendar-date {
+	padding-bottom : 20px;
+}

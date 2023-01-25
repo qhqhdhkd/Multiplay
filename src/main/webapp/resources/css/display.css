@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+:root { -
+	-bs-body-bg: #fff7ed;
+}
+
+.center {
+	width: 1000px;
+	height: 42px;
+	margin: auto;
+	border: none;
+}
+
+.searchSize {
+	width: 150px;
+	height: 42px;
+	margin: auto;
+	border: none;
+}
+
+.btn_color {
+	background: #fbbc04;
+	width: 100px;
+	height: 42px;
+	margin-left: 15px;
+	font-size: 18px;
+	border-radius: 25px;
+	border: none;
+}
+
+.frist {
+	position: absolute;
+	left: 18%;
+	top: 70%;
+	z-index: 2;
+	top: 70%;
+	border: none;
+}
+
+.second {
+	position: relative;
+	z-index: 1;
+	border: none;
+}
+
+.content {
+	margin: 0 auto;
+	background: #fffbcd;
+	border: none;
+}
+
+.h3 {
+	color: #ffffff;
+}
+
+.text-center h4 {
+	text-align: center;
+	vertical-align: middle;
+	margin-top: 10px;
+	margin-left: 10px;
+	border: none;
+}
+
+.table {
+	margin: 0 auto;
+	background-color: #ffffff;
+	word-break: break-all;
+	table-layout: fixed;
+	border: none;
+	border-radius: 25px;
+}
+
+.table th {
+	border: none;
+}
+
+.calender {
+	height: 42px;
+	font-size: 18px;
+	border: none;
+}

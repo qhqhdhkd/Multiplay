@@ -1,0 +1,74 @@
+li{list-style: none;}
+/* navbar */
+i{ margin-left: 2px; margin-right: 4px; }
+.sidenav.navbar .navbar-nav .nav-item .nav-link { line-height: 40px; }
+.sidenav.navbar .navbar-nav .nav-item .nav-link:hover { background-color: rgb(255, 247, 237) !important; color: black !important; }
+.selectBox{ background-color: rgb(251, 188, 4) !important; color: white; }
+
+/* 탭메뉴 */
+.mypage-card-list{ display: flex; flex-direction: column; }
+.card{ display: none; }
+.card.target { display: block; }
+
+/* 회원정보수정 */
+.btn:focus, .btn:hover, .btn:active {
+    background-color: black;
+    border-color: rgb(255, 247, 237);
+    color: white;
+}
+.form-control[readonly], .form-control[readonly]:focus { background-color: rgb(243, 243, 243); }
+.form-control:focus {
+    background-color: #fff;
+    border-color: rgb(251, 188, 4);
+    box-shadow: 0 0 0 3px rgb(255 247 237 / 75%);
+}
+.mybutton{
+	background-color: rgb(251, 188, 4); /* 진한색 */
+    color: rgb(255, 247, 237); /* 연한색*/
+	border-color: rgb(251, 188, 4);
+}
+.pwbutton{
+	color: rgb(251, 188, 4);
+    background-color: rgb(255, 247, 237);
+	border-color: rgb(251, 188, 4);
+}
+
+/* 스탬프 */
+.stamp-list{
+	text-align: center;
+}
+.mypage-stamp{
+	display: inline-block;
+}
+.mypage-stamp i{
+	display: block;
+	width: 120px;
+	margin: 5px;
+	color: rgb(243, 243, 243);
+}
+.mypage-stamp.success i{
+	color: rgb(251, 188, 4);
+}
+#mystamp-result.success i{
+	color: rgb(251, 70, 4);
+}
+
+/* 예매내역 */
+.moreBookBtn{ text-align: center;}
+
+.moreBookList{
+  width: 40px;
+  height: 40px;
+  margin: 3px 5px;
+  background-color: rgb(251, 188, 4);
+  border: 0px;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 2px;
+  border-radius: 4px;
+}
+.moreBookList:hover{
+  background-color: black;
+  color:white;
+  transition: .1s ease-in;
+}

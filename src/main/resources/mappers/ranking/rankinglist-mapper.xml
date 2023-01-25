@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper
+	namespace="com.multi.mvc.submain.model.mapper.SubmainMapper"> <!-- submain 패키지 -->
+
+	<resultMap type="RankingList" id="RankingListResultMap">
+		<id property="pNo" column="pNo" />
+		<result property="cultureNo" column="cultureNo" />
+		<result property="rankNo" column="rankNo" />
+		<result property="bookRate" column="bookRate" />
+		<result property="mt20id" column="mt20id" />
+		<result property="prfnm" column="prfnm" />
+		<result property="prfpdfrom" column="prfpdfrom" />
+		<result property="prfpdto" column="prfpdto" />
+		<result property="fdtynm" column="fdtynm" />
+		<result property="poster" column="poster" />
+		<result property="genrenm" column="genrenm" />
+		<result property="area" column="area" />
+	</resultMap>
+
+	<resultMap type="RankingList"
+		id="MusicalRankingListResultMap">
+		<id property="pNo" column="pNo" />
+		<result property="cultureNo" column="cultureNo" />
+		<result property="rankNo" column="rankNo" />
+		<result property="bookRate" column="bookRate" />
+		<result property="prfnm" column="prfnm" />
+		<result property="prfpdfrom" column="prfpdfrom" />
+		<result property="prfpdto" column="prfpdto" />
+		<result property="fdtynm" column="fdtynm" />
+		<result property="poster" column="poster" />
+		<result property="genrenm" column="genrenm" />
+		<result property="area" column="area" />
+	</resultMap>
+	
+	<resultMap type="RankingList"
+		id="PlayRankingListResultMap">
+		<id property="pNo" column="pNo" />
+		<result property="cultureNo" column="cultureNo"/>
+		<result property="rankNo" column="rankNo" />
+		<result property="bookRate" column="bookRate" />
+		<result property="prfnm" column="prfnm" />
+		<result property="prfpdfrom" column="prfpdfrom" />
+		<result property="prfpdto" column="prfpdto" />
+		<result property="fdtynm" column="fdtynm" />
+		<result property="poster" column="poster" />
+		<result property="genrenm" column="genrenm" />
+		<result property="area" column="area" />
+	</resultMap>
+
+
+	<!-- MySQL의 페이징 기능을 활용한 코드 -->
+	<select id="selectRankingList" resultMap="RankingListResultMap"
+		parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom,
+		R.prfpdto, R.fdtynm, R.bookRate
+		FROM rankingList R where genrenm=#{genrenm} order by rankNo ASC
+		limit 10
+	</select>
+
+	<select id="selectMusicalRanking"
+		resultMap="MusicalRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '뮤지컬' ORDER BY RANKNO ASC LIMIT 10
+	</select>
+
+	<select id="selectPlayRanking"
+		resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '연극' ORDER BY RANKNO ASC
+		LIMIT 10
+	</select>
+	
+	<select id="selectConcertRanking"
+		resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '콘서트' ORDER BY RANKNO ASC
+		LIMIT 10
+	</select>
+	
+	<select id="selectClassicRanking"
+		resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '클래식/무용' ORDER BY RANKNO ASC
+		LIMIT 10
+	</select>
+	
+	<select id="selectDisplayRanking"
+		resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '전시' ORDER BY RANKNO ASC
+		LIMIT 10
+	</select>
+	
+	<select id="selectRankingTopFive"
+		resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = #{genrenm} ORDER BY RANKNO ASC
+		LIMIT 5
+	</select>
+	
+	<select id="selectMusicalTopFive" resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '뮤지컬' ORDER BY RANKNO ASC
+		LIMIT 5
+	</select>
+	
+	<select id="selectPlayTopFive" resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '연극' ORDER BY RANKNO ASC
+		LIMIT 5
+	</select>
+	
+	<select id="selectConcertTopFive" resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '콘서트' ORDER BY RANKNO ASC
+		LIMIT 5
+	</select>
+	
+	<select id="selectClassicTopFive" resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '클래식/무용' ORDER BY RANKNO ASC
+		LIMIT 5
+	</select>
+	
+	<select id="selectDisplayTopFive" resultMap="PlayRankingListResultMap" parameterType="map">
+		SELECT
+		R.rankNo, R.cultureNo, R.poster, R.prfnm, R.prfpdfrom, R.prfpdto, R.fdtynm, R.bookRate
+		FROM
+		rankingList R WHERE genrenm = '전시' ORDER BY RANKNO ASC
+		LIMIT 5
+	</select>
+
+
+</mapper>

@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+a:hover{
+	color: #fbbc04 !important;
+}
+:root{
+	    --bs-body-bg: #fff7ed;
+}
+
+/* 헤더 시작 */
+/* 헤더 이슈 발생 2022-12-31 여기 손봐야 할듯... */
+.header{
+	position: relative;
+	height: 75px;
+    padding: 15px;
+}
+
+.navbar-brand img{
+	width: 50px;
+	height: auto;
+}
+.header-nav{
+	width: 320px;
+	height: 55px !important;
+}
+.nav-item{
+	height: 55px !important;
+}
+.nav-link{
+	height: 55px !important;
+	line-height: 40px !important;
+	font-size: 1.2rem !important;
+	font-weight: 600 !important;
+}
+	/* 헤더 게시판 드롭다운 */
+.list-group-item:hover{
+	background-color: #fff7ed;
+}
+.list-group-item:active{
+	background-color: #faefe2;
+	
+}
+.header-searchBar{
+	border: 2px solid #fbbc04;
+	border-radius: 0px;
+	width: 300px;
+}
+.dropdown-item:focus,
+.dropdown-item:hover,
+.dropdown-item:focus:hover {
+    background-color: #fff7ed;
+    color: #fbbc04;
+}
+.dropdown-item:active,
+.dropdown-item:focus:active {
+    background-color: #faefe2;
+}
+/* 헤더 끝 */
+
+
+/* 푸터 시작 */
+.footer{
+    background-color: #f1f1f1;
+	color:  #767676;
+	font-style: normal;
+}
+.footer_nav a{
+	color:  #767676;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 1.3rem;
+}
+.footer_nav{
+	width: 100%;
+	text-align: center;
+	margin-bottom: 8px;
+}
+.footer-line{
+	border-color: #767676;
+}
+.footer-brand{
+	width: 200px;
+	height: auto;
+}
+.footer-msg{
+	height: 75px;
+	line-height: 25px;
+	text-align: left;
+	font-size: 1.3rem;
+}
+/* 푸터 끝 */
+
+
+/* content 부분 시작 */
+
+/* 메인페이지 home.jsp */
+#content{
+	width: 1200px;
+	margin:0 auto;
+}
+
+

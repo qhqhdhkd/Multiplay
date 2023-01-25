@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.multi.mvc.show.model.mapper.ShowMapper">
+	<sql id="selectShowSql">
+		SELECT
+		CNO, SEQ, TITLE, STARTDATE, ENDDATE, PLACE,
+		REALMNAME, AREA, THUMBNAIL,
+		GPSX, GPSY
+		FROM CULTURAL_LIST
+	</sql>
+	
+	<resultMap type="Show" id="showResultMap">
+		<id 	property="show_cno" 		column="CNO" />
+		<result property="show_seq" 		column="SEQ" />
+		<result property="show_title" 		column="TITLE" />
+		<result property="show_startdate" 		column="STARTDATE" />
+		<result property="show_enddate" 	column="ENDDATE" />
+		<result property="show_place" 	column="PLACE" />
+		<result property="show_realmname" 	column="REALMNAME" />
+		<result property="show_area" 	column="AREA" />
+		<result property="show_thumbnail" 	column="THUMBNAIL" />
+		<result property="show_gpsx" 	column="GPSX" />
+		<result property="show_gpsy" 	column="GPSY" />
+	</resultMap>
+	
+	<select id="selectShowList" parameterType="map" resultMap="showResultMap">
+		SELECT * FROM CULTURAL_LIST
+		WHERE 1=1
+		AND REALMNAME IN  ('연극','콘서트','클래식','무용','뮤지컬', '기타')
+		<if test="searchValue != null">
+			AND TITLE like '%${searchValue}%'
+		</if>
+		<if test="local != null">
+			AND AREA IN
+			<foreach item="item" index="index" collection="local" open="(" separator="," close=")">
+        		#{item}
+  			</foreach>
+		</if>
+		<if test="genre != null">
+			AND REALMNAME IN
+			<foreach item="item" index="index" collection="genre" open="(" separator="," close=")">
+        		#{item}
+  			</foreach>
+		</if>
+		
+		<!-- select * from CULTURAL_LIST where STARTDATE between date('startday') and date('endday')+1;-->
+		<choose>
+			<when test='startday != "null" and endday != "null"'>
+ 			AND STARTDATE BETWEEN DATE('${startday}') AND DATE('${endday}')+1
+ 			</when>
+		</choose>
+		
+	</select>
+	
+	<select id="selectDisplayList" parameterType="map" resultMap="showResultMap">
+		SELECT * FROM CULTURAL_LIST
+		WHERE 1=1 
+		AND REALMNAME IN ('미술','전시')
+		
+		<if test="searchValue != null">
+			AND AREA like '%${searchValue}%'
+		</if>
+		
+		<!-- select * from CULTURAL_LIST where STARTDATE between date('startday') and date('endday')+1;-->
+		<choose>
+			<when test='startday != "null" and endday != "null"'>
+ 			AND STARTDATE BETWEEN DATE('${startday}') AND DATE('${endday}')+1
+ 			</when>
+		</choose>
+		
+	</select>
+		<select id="selectLocationList" parameterType="map" resultMap="showResultMap">
+		SELECT * FROM CULTURAL_LIST
+		WHERE 1=1
+		<if test="local != null">
+			AND AREA like '%${local}%'
+		</if>
+		
+	</select>
+
+	<select id="searchShowList" parameterType="map"
+		resultMap="showResultMap">
+		SELECT * FROM CULTURAL_LIST
+		WHERE 1=1
+		AND REALMNAME IN  ('연극','콘서트','클래식','무용','뮤지컬', '기타')
+		AND TITLE like '%${value}%'
+		<if test="value != null">
+			AND TITLE like '%${value}%'
+		</if>
+	</select>
+	
+	<select id="searchShowList2" parameterType="map"
+		resultMap="showResultMap">
+		SELECT * FROM CULTURAL_LIST
+		WHERE 1=1
+		AND REALMNAME IN ('미술','전시')
+		AND TITLE like '%${value}%'
+		<if test="value != null">
+			AND TITLE like '%${value}%'
+		</if>
+	</select>
+</mapper>

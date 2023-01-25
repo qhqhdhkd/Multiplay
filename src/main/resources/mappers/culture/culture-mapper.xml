@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.multi.mvc.culture.model.mapper.CultureMapper">
+	<resultMap type="Culture" id="cultureListResultMap">
+		<id property="cno" column="CNO"/>
+		<result property="seq" column="SEQ"/>
+		<result property="title" column="TITLE"/>
+		<result property="startdate" column="STARTDATE"/>
+		<result property="enddate" column="ENDDATE"/>
+		<result property="place" column="PLACE"/>
+		<result property="realmname" column="REALMNAME"/>
+		<result property="area" column="AREA"/>
+		<result property="thumbnail" column="THUMBNAIL"/>
+		<result property="subTitle" column="subTitle "/>
+		<result property="price" column="price"/>
+		<result property="contents1" column="contents1"/>
+		<result property="contents2" column="contents2"/>
+		<result property="url" column="url"/>
+		<result property="phone" column="phone"/>
+		<result property="imgUrl" column="imgUrl"/>
+		<result property="gpsX" column="gpsX"/>
+		<result property="gpsY" column="gpsY"/>
+		<result property="placeUrl" column="placeUrl"/>
+		<result property="placeAddr" column="placeAddr"/>
+		<result property="placeSeq" column="placeSeq"/>
+	</resultMap>
+	
+	<resultMap type="CultureDetail" id="cultureDetailResultMap">
+		<id  	 property="int" column="SEQ"/>
+		<result  property="String" column="title"/>
+		<result  property="Date" column="startDate"/>
+		<result  property="Date" column="endDate"/>
+		<result  property="String" column="place"/>
+		<result  property="String" column="realmName"/>
+		<result  property="String" column="AREA"/>
+		<result  property="String" column="subTitle "/>
+		<result  property="String" column="price"/>
+		<result  property="String" column="contents1"/>
+		<result  property="String" column="contents2"/>
+		<result  property="String" column="url"/>
+		<result  property="String" column="phone"/>
+		<result  property="String" column="imgUrl"/>
+		<result  property="Double" column="gpsX"/>
+		<result  property="Double" column="gpsY"/>
+		<result  property="String" column="placeUrl"/>
+		<result  property="String" column="placeAddr"/>
+		<result  property="int" column="placeSeq "/>
+	</resultMap>
+	
+	<!-- 모든 정보 가져오기 -->
+	<select id="selectCulture" resultMap="cultureListResultMap" parameterType="map">
+		SELECT C.CNO, C.SEQ, C.TITLE, C.STARTDATE, C.ENDDATE, C.PLACE, C.REALMNAME, C.AREA, C.THUMBNAIL, C.subTitle, 
+			C.price, C.contents1, C.contents2, C.url, C.phone, C.imgUrl, C.gpsX, C.gpsY, C.placeUrl, C.placeAddr, C.placeSeq
+		FROM CULTURAL C
+	</select>
+	
+	<!-- cno를 조건으로 테이블 내용 가져오기 -->
+	<select id="selectCultureByCno" resultMap="cultureListResultMap" parameterType="int">
+		SELECT
+			C.CNO, C.REALMNAME, C.TITLE,  C.STARTDATE, C.ENDDATE, C.PLACE, C.contents1, C.THUMBNAIL
+		FROM CULTURAL C
+		WHERE C.CNO=#{cno}
+	</select>
+	
+	<select id="selectCultureByTitle" resultMap="cultureListResultMap" parameterType="string">
+		SELECT
+			C.CNO, C.REALMNAME, C.TITLE,  C.STARTDATE, C.ENDDATE, C.PLACE, C.contents1, C.THUMBNAIL
+		FROM CULTURAL C
+		WHERE C.TITLE=#{title}
+	</select>
+	
+</mapper>

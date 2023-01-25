@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Noto+Sans+KR:wght@100;300;400;500;700&family=Paytone+One&family=Secular+One&display=swap');
+body {
+  background-color: rgb(255, 247, 237);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/*글쓰기 폼*/
+td{padding: 10px;}
+th{
+	text-align: center;
+}
+/*카테고리*/
+#category{
+  width: 80px;
+  height: 30px;
+}
+.category-selector{
+	margin-top: 20px;
+}
+
+/*제목*/
+.board-write{
+  margin: 0 auto;
+  font-family: 'Noto Sans KR', sans-serif;
+  width: 1000px;
+}
+input,select{
+	background-color: rgb(255, 247, 237);
+}
+.title-area{
+  border: none;
+  border-bottom: 3px solid rgb(101, 101, 101);
+  padding-top:50px;
+}
+
+.title{
+  border: none;
+  width: 100%;
+  height: 50px;
+  font-size: 22px;
+}
+input:focus {outline: none;}
+
+.wirter{
+  margin: 0 auto;
+  padding: 50px 0px;
+  width: 100%;
+}
+
+/*파일업로드*/
+.file-header{
+  padding-right: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip:rect(0,0,0,0);
+	border: 0;
+}
+
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #999;
+	font-size: 15px;
+	cursor: pointer;
+	border-radius: .25em;
+}
+
+.filebox .upload-name {
+	display: inline-block;
+	padding: .5em .75em;
+	font-size: inherit;
+	font-family: inherit;
+  border-radius: .25em;
+  appearance: none;
+  width: 300px;
+  height: 35px;
+}
+
+.filebox.bs3-primary label {
+  color: black;
+	background-color: rgb(251, 188, 4);
+  font-size: 15px;
+  padding: 6px 10px;
+  font-weight: 600;
+}
+
+/*글쓰는 부분*/
+.textarea{
+  background-color: white;
+}
+.area{
+  font-family: inherit;
+  background-color: transparent;
+  padding: 30px 50px;
+  font-size: 20px;
+  resize: none;
+  border: none;
+  outline: none;
+  line-height: 35px;
+}
+
+
+/*버튼*/
+#writeBtns{
+  padding: 20px 0px;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+#writeBtn{
+  width: 60px;
+  height: 36px;
+  background-color: rgb(251, 188, 4);
+  border: 0px;
+  font-weight: 800;
+  font-size: 15px;
+  border-radius: 4px;
+  margin: 0px 5px;
+  
+}
+button:hover{
+  background-color: black;
+  color:white;
+  transition: .1s ease-in;
+}
+
+
+
+
+/*고객센터 */
+.bnr-bottom-wrap {
+  width: 100%;
+  background: white;
+}
+.bnr-bottom {
+  width: 1200px;
+  display: table;
+  margin: 0px auto;
+  background-color: white;
+  display: flex;
+}
+.bnr-bottom-01, .bnr-bottom-02{
+  background-color: white;
+}
+.icon-container{
+  background-color: white;
+  padding: 20px;
+  border: 2px solid rgb(151, 151, 151);
+  border-radius: 50%;
+}
+.fa-phone-volume, .fa-pen-to-square{
+  font-size: 30px;
+  background-color: white;
+  color: rgb(151, 151, 151);
+}
+.bnr-bottom .bnr-bottom-01 {
+  display: flex;
+  align-items: center;
+  padding-left: 120px;
+  position: relative;
+  border-right: 1px solid lightgray;
+  margin: 15px 0px;
+}
+
+
+.bnr-bottom .bnr-bottom-02 {
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  margin: 15px 0px;
+}
+.bnr-bottom > div {
+  width: 50%;
+  height: 120px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.bottom-title{
+  font-weight: 600;
+  font-size: 18px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+.bottom-sub{
+  background-color: white;
+  font-size: 15px;
+  display: block;
+}
+.info-container{
+  background-color: white;
+  margin-left: 20px;
+}

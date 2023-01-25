@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper
+	namespace="com.multi.mvc.review.model.mapper.ReviewMapper">
+	<resultMap type="Review" id="reviewListResultMap">
+		<id property="reviewNo" column="REVIEW_NO" />
+		<result property="cno" column="CNO" />
+		<result property="reviewWriterNo" column="REVIEW_WRITER_NO" />
+		<result property="userId" column="USER_ID" />
+		<result property="bookNo" column="BOOK_NO" />
+		<result property="reviewTitle" column="REVIEW_TITLE" />
+		<result property="reviewContent" column="REVIEW_content" />
+		<result property="reactionCount" column="REACTION_COUNT" />
+		<result property="originalImg" column="ORIGINAL_IMG" />
+		<result property="modifyImg" column="MODIFY_IMG" />
+		<result property="status" column="STATUS" />
+		<result property="createDate" column="CREATE_DATE" />
+		<result property="modifyDate" column="MODIFY_DATE" />
+	</resultMap>
+	
+	<!-- 리뷰 가져오기 -->
+	<select id="selectReviewList" parameterType="map" resultMap="reviewListResultMap">
+		SELECT R.CNO, R.REVIEW_NO, U.USER_ID, R.REVIEW_content, R.ORIGINAL_IMG, R.CREATE_DATE, R.REACTION_COUNT, R.STATUS 
+		FROM REVIEW R JOIN USERS U ON(R.REVIEW_WRITER_NO = U.USER_NO) 
+		WHERE R.STATUS = 'Y'
+	</select>
+	
+	<!-- 리뷰 작성 -->
+	<insert id="insertReview" parameterType="Review">
+	INSERT INTO REVIEW(
+		REVIEW_NO, CNO, REVIEW_WRITER_NO, BOOK_NO, 
+		REVIEW_content, REACTION_COUNT, 
+		ORIGINAL_IMG, MODIFY_IMG, STATUS, CREATE_DATE, MODIFY_DATE
+	) VALUES(
+		0, #{cno}, #{reviewWriterNo}, #{bookNo},
+		 #{reviewContent}, #{reactionCount},
+		#{originalImg}, #{modifyImg}, DEFAULT, DEFAULT, DEFAULT
+	)
+	</insert> 
+	
+	<!-- 리뷰 수정 -->
+	<update id="updateReview" parameterType="Review">
+		UPDATE REVIEW
+		SET
+			REVIEW_content = #{reviewContent}
+			<if test="originalImg != null">
+				ORIGINAL_IMG=#{originalImg},
+			</if>
+			<if test="modifyImg != null">
+				MODIFY_IMG=#{modifyImg},
+			</if>
+			MODIFY_DATE = CURRENT_TIMESTAMP
+			WHERE REVIEW_NO=#{reviewNo}
+	</update>
+	
+	<!-- 리뷰 삭제 -->
+	<update id="deleteReview" parameterType="int">
+		UPDATE REVIEW SET STATUS='N' WHERE REVIEW_NO=#{reviewNo}
+	</update>
+	
+	<!-- 리뷰 리액션 가져오기 -->
+	<select id="selectReactionCount" resultType="int" parameterType="int">
+		SELECT COUNT(*)
+		FROM REVIEW R JOIN USERS U ON(R.REVIEW_WRITER_NO = U.USER_NO)
+		WHERE R.STATUS='Y'
+		AND R.REVIEW_NO = #{reviewNo}
+	</select>
+	
+	<!-- 리뷰 리액션 + 업데이트 -->
+	<update id="updateReactionCount" parameterType="int">
+		UPDATE REVIEW SET REACTION_COUNT=REACTION_COUNT+1 WHERE REVIEW_NO=#{reviewNo}
+	</update>
+	
+	<!-- 리뷰 리액션 - 업데이트 -->
+	<update id="deupdateReactionCount" parameterType="int">
+		UPDATE REVIEW SET REACTION_COUNT=REACTION_COUNT-1 WHERE REVIEW_NO=#{reviewNo}
+	</update>
+	
+	<!-- 리액션 개수 반환 -->
+	<select id="reactionCountNum" resultType="int" parameterType="int">
+		SELECT REACTION_COUNT
+		FROM REVIEW R JOIN USERS U ON(R.REVIEW_WRITER_NO = U.USER_NO)
+		WHERE R.STATUS='Y'
+		AND R.REVIEW_NO = #{reviewNo}
+	</select>
+</mapper>

@@ -1,0 +1,84 @@
+body{
+	background-color: #fff7ed;
+}
+.container{
+	position: absolute;
+	background-color: rgb(211, 139, 139);
+	height: 319px;
+	width: 300px;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+    margin-left: -150px;
+}
+ul{
+	display: flex;
+	font-weight: 600;
+}
+ul.tabs{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	/* background-color: rgb(117, 152, 153); */
+}
+li{list-style: none;}
+ul.tabs li{
+	width: 150px;
+  	display: inline-block;
+	background: #dbdbdb;
+	font-size: 0.9rem;
+	color: black;
+	padding: 10px 10px;
+	cursor: pointer;
+}
+
+ul.tabs li.current{
+	border-right: #222;
+	width: 150px;
+	background: white;
+	color: #222;
+}
+
+.tab-content{
+	height: 250px;
+  	display: none;
+	background: white;
+	padding: 15px;
+	
+}
+
+.tab-content.current{
+	display: inherit;
+}
+.box2 input{
+	height: 25px;
+	width: 260px;
+}
+.log3{
+	margin-top: 15px;
+	margin-bottom: 10px;
+	padding-left: 0px;
+	font-weight: 600;
+}
+button{
+	width: 100px;
+	height: 30px;
+	background-color: rgb(251, 188, 4);
+	color: white;
+	border: 0px;
+	font-weight: 800;
+	font-size: 15px;
+	padding: 2px;
+	border-radius: 4px;
+	}
+button:hover{
+	background-color: black;
+	color:white;
+	transition: .1s ease-in;
+}
+.table-button{
+    height: 35px;
+    width: 269px;
+    margin-top: 40px;
+    color: white;
+}

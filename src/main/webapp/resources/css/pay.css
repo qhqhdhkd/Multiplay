@@ -1,0 +1,27 @@
+.row{ --bs-gutter-x: 0 !important; }
+
+.pay-people{ border-right: 1px solid grey; }
+.pay-select-tit{ background-color: #FBBC04; text-align: center; font-size: 1.3rem; font-weight: bold; color: black; }
+
+/* 인원 선택 */
+.person {
+	background-color: transparent;
+	margin: 3px;
+	width: 30px;
+    height: 30px;
+}
+.check {
+	background-color: black;
+    color: white;
+}
+
+/* 좌석 선택 */
+.seat {
+	background-color: transparent;
+    width: 30px;
+    height: 30px;
+}
+.clicked {
+    background-color: red;
+    color: white;
+}

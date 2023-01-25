@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.multi.mvc.user.model.mapper.UserMapper">
+	<sql id="selectMemberSql">
+		SELECT 	
+			USER_NO, USER_ID, USER_PW, USER_NAME, USER_BIRTH, USER_PHONE,
+			USER_EMAIL, USER_ADDRESS, USER_STAMP,
+			status, ENROLL_DATE, MODIFY_DATE 
+		FROM USERS
+	</sql>
+	
+	<resultMap type="Users" id="userResultMap">
+		<id 	property="userNo" 		column="USER_NO" />
+		<result property="userId" 		column="USER_ID" />
+		<result property="userPw" 		column="USER_PW" />
+		<result property="userName" 	column="USER_NAME" />
+		<result property="userBirth" 	column="USER_BIRTH" />
+		<result property="userPhone" 	column="USER_PHONE" />
+		<result property="userEmail" 	column="USER_EMAIL" />
+		<result property="userAddress" 	column="USER_ADDRESS" />
+		<result property="userStamp" 	column="USER_STAMP" />
+		<result property="status" 	column="status" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="modifyDate" column="MODIFY_DATE" />
+	</resultMap>
+	
+	<select id="selectCount" resultType="int">
+		SELECT COUNT(*) FROM USERS
+	</select>
+	
+	<select id="selectAll" resultMap="userResultMap">
+		<include refid="selectMemberSql"/>
+	</select>
+	
+	<select id="selectMember" parameterType="string" resultMap="userResultMap">
+		<include refid="selectMemberSql"/>
+		WHERE USER_ID = #{userId} AND STATUS = 'Y'
+	</select>	
+	
+	<insert id="insertMember" parameterType="Users">
+		INSERT INTO USERS(
+			USER_NO, USER_ID, USER_PW, 	
+			USER_NAME, USER_BIRTH, USER_PHONE,
+			USER_EMAIL, USER_ADDRESS, USER_STAMP,		
+			status, ENROLL_DATE, MODIFY_DATE 
+		) VALUES (
+			 0, #{userId}, #{userPw},
+			 #{userName}, #{userBirth}, #{userPhone},
+			 #{userEmail}, #{userAddress}, DEFAULT,
+			 DEFAULT, DEFAULT, DEFAULT)
+	</insert>
+	
+	 <update id="updateMember" parameterType="Users">
+	 	UPDATE USERS
+	 	SET
+	 		USER_NAME		= #{userName}, 
+	 		USER_PHONE		= #{userPhone},
+	 		USER_EMAIL		= #{userEmail},
+	 		USER_ADDRESS	= #{userAddress},
+	 		MODIFY_DATE		= #{modifyDate}
+	 	WHERE USER_NO = #{userNo}
+	 </update>
+	 
+	 <update id="updatePwd" parameterType="map">
+	 	UPDATE USERS 
+	 		SET USER_PW = #{newPwd} 
+ 		WHERE USER_NO = #{userNo}
+	 </update>
+	 
+	 <update id="deleteMember" parameterType="int">
+	 	UPDATE USERS 
+	 		SET STATUS = 'N' 
+	 	WHERE USER_NO = #{userNo}
+	 </update>
+</mapper>

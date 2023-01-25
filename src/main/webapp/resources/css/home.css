@@ -1,0 +1,312 @@
+li{ list-style: none; }
+a{ color: black; }
+.home-diplay-ib{
+	display: inline-block;
+}
+
+/* 메인페이지 배너 */
+.home-banner {
+	position: relative;
+	vertical-align: middle;
+}
+
+.home-banner-outer {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.home-banner-inner-list {
+	display: flex;
+	margin: 0 auto;
+	transition: .3s ease-out; /* 애니메이션 효과 */
+}
+
+.home-banner-inner {
+	overflow: hidden;
+}
+
+.home-bannerImg {
+	max-width: 100%;
+	display: block;
+}
+
+.button-list {
+	text-align: center;
+}
+
+.button-left, .button-right {
+	border: none;
+	background: none;
+	color: #767676;
+	top: 50%;
+	margin-top: -22px;
+}
+
+.button-left {
+	position: absolute;
+	left: 10px;
+}
+
+.button-right {
+	position: absolute;
+	right: 10px;
+}
+
+/* 메인페이지 콘텐츠 */
+#content{
+	width: 1300px;
+}
+.home-content {
+	padding-top: 58px;
+}
+.home-hr {
+	color: black;
+}
+
+/* 메인페이지 top5 */
+.home-top5-area{padding-bottom:58px; display: flex;}
+.home-top5-area ul{overflow:hidden;margin-left:-24px;}
+.home-top5-area ul li{float:left;margin-left:24px;}
+.home-top5-area ul li div a{display:block;}
+.home-top5-area ul li div a img{display:block;}
+.home-top5-area ul li .home-top5-list{margin-bottom:24px; width:220px; height:309px;position:relative;}
+.home-top5-area ul li .home-top5-list a{width:100%; height:309px;overflow:hidden;} 
+.home-top5-area ul li .home-top5-list a img{width:100%; height:309px; transition:all 0.3s;} 
+.home-top5-area ul li .home-top5-list a .top5-list-txt{width:100%; height:309px; background:rgba(0,0,0,0.6); position:absolute; left:0; top:0;display:table;opacity:0;transition: all 0.3s;} 
+.home-top5-area ul li .home-top5-list a .top5-list-txt div{display:table-cell; text-align:center;vertical-align:middle;padding:0 15px;}
+.home-top5-area ul li .home-top5-list a .top5-list-txt div .home-top5-title{font-size:18px; line-height:25px; color:#fff; }
+.home-top5-area ul li .home-top5-list a .top5-list-txt div .home-top5-detail{font-size:13px; line-height:20px; color:#fff; margin:15px 0; }
+.home-top5-area ul li .home-top5-list a:hover img{transform:scale(1.04);} 
+.home-top5-area ul li .home-top5-list a:hover .top5-list-txt{opacity:1;} 
+.home-top5-area ul li .home-top5-list a:hover img{transform:scale(1.04);}
+
+/* 탭 선택 시 표시할 요소(div) 정의(1번 탭 선택 시 첫 번째 div 요소 표시) */
+.home-top5 input:nth-of-type(1), .home-top5 input:nth-of-type(1) ~ div:nth-of-type(1), .home-top5 input:nth-of-type(2), .home-top5 input:nth-of-type(2) ~ div:nth-of-type(2),
+ .home-top5 input:nth-of-type(3), .home-top5 input:nth-of-type(3) ~ div:nth-of-type(3), .home-top5 input:nth-of-type(4), .home-top5 input:nth-of-type(4) ~ div:nth-of-type(4),
+ .home-top5 input:nth-of-type(5), .home-top5 input:nth-of-type(5) ~ div:nth-of-type(5), .home-top5 input:nth-of-type(6), .home-top5 input:nth-of-type(6) ~ div:nth-of-type(6) {
+    display:none
+}
+.home-top5 input:nth-of-type(1):checked ~ div:nth-of-type(1), .home-top5 input:nth-of-type(2):checked ~ div:nth-of-type(2), .home-top5 input:nth-of-type(3):checked ~ div:nth-of-type(3),
+ .home-top5 input:nth-of-type(4):checked ~ div:nth-of-type(4), .home-top5 input:nth-of-type(5):checked ~ div:nth-of-type(5), .home-top5 input:nth-of-type(6):checked ~ div:nth-of-type(6) {
+    display:block
+}
+
+/* 라벨 기본 스타일 지정 */
+.home-top5 > label {
+    display:inline-block;
+    font-variant:small-caps;
+    padding:5px;
+    text-align:center;
+    width:10%;
+    line-height:1.8em;
+    font-weight:700;
+    color:#777;
+}
+.home-top5 > label:hover {
+    cursor:pointer
+}
+.home-top5 label[for=home-tab1] {
+    margin-left:1.5em
+}
+
+/* 선택된 라벨, 커서를 올린 라벨 스타일 지정 */
+.home-top5 input:nth-of-type(1):checked ~ label:nth-of-type(1), .home-top5 > label[for=home-tab1]:hover {
+    color: black;
+}
+.home-top5 input:nth-of-type(2):checked ~ label:nth-of-type(2), .home-top5 > label[for=home-tab2]:hover {
+    color: black;
+}
+.home-top5 input:nth-of-type(3):checked ~ label:nth-of-type(3), .home-top5 > label[for=home-tab3]:hover {
+    color: black;
+}
+.home-top5 input:nth-of-type(4):checked ~ label:nth-of-type(4), .home-top5 > label[for=home-tab4]:hover {
+    color: black;
+}
+.home-top5 input:nth-of-type(5):checked ~ label:nth-of-type(5), .home-top5 > label[for=home-tab5]:hover {
+    color: black;
+}
+.home-top5 input:nth-of-type(6):checked ~ label:nth-of-type(6), .home-top5 > label[for=home-tab6]:hover {
+    color: black;
+}
+
+
+/* sec04 : 공연후기 + 공지사항 */
+.home-review, .home-notice{
+	position: relative;
+}
+.home-review-radio{
+	position: absolute;
+	right: 12px;
+}
+.home-review-radio > button{
+  width: 36px;
+  height: 36px;
+  background-color: rgb(251, 188, 4);
+  border: 0px;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 2px;
+  border-radius: 4px;
+}
+.home-review-radio > button:active{
+  background-color: black;
+  color: white;
+}
+.home-review-radio > label{ color: rgb(162, 161, 161); }
+.home-review-radio > label.active{ color: rgb(251, 188, 4); }
+.home-card-item{}
+.home-card-list{ display: flex; width: 100%; position: relative;}
+.home-card-item{ display: none;  }
+.home-card-item.target { display: block; }
+.home-card-item img{ width: 100%; overflow: hidden; }
+
+.rni-box {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.58);
+    transition: all 1s;
+}
+.rni-box .rni-txt {
+    font-size: 25px;
+    padding: 0 30px;
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    letter-spacing: -0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.home-notice-more{
+	color: black;
+	position: absolute;
+	right: 12px;
+	font-weight: 700;
+}
+.home-notice-list {
+    padding: 5px 0 0 0;
+}
+.home-notice-list li {
+    margin-bottom: 12px!important;
+    position: relative!important;
+    padding-left: 10px!important;
+}
+.home-notice-list li a {
+    padding-right: 80px;
+}
+
+.home-notice-list li a p {
+    font-size: .9rem;
+    height: 20px;
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.home-notice-list li a span {
+    font-size: 14px;
+    color: #888;
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* preFooter */
+#home-preFooter {
+	width: 100%;
+	background-color: white;
+}
+
+.home-preFooter {
+	position: relative;
+	margin: 0 auto;
+	width: 1200px;
+	height: 190px;
+}
+
+.home-preFooter-left {
+	position: absolute;
+	top: 15px;
+	left: 0;
+	height: 160px;
+	border-right: 1px solid #767676;
+}
+
+.home-preFooter-tell {
+	text-align: center;
+	font-size: 50px;
+	color: #fbbc04;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+dl {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	margin-left: 0;
+}
+
+dt {
+	display: block;
+	float: left;
+	width: 45px;
+	font-size: 13px;
+	color: #999;
+	line-height: 20px;
+}
+
+dd {
+	display: block;
+	margin-left: 40px;
+}
+
+.home-preFooter-right {
+	position: absolute;
+	top: 15px;
+	right: 0;
+	height: 160px;
+	font-size: 15px;
+	display: table;
+}
+.home-icon {
+	transform: translate(25%, 25%);
+	display: inline-block;
+	display: table-cell;
+	display: inline-block;
+}
+.home-icon i{
+	color: black;
+}
+
+/* 위로가기 버튼 css*/
+#goingTop {
+    position: fixed;
+    right: 2%;
+    bottom: 20%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: #6699cc;
+    color: #ffffff;
+    font-size: 25px;
+    box-shadow: 0px 0px 5px #3973ac;
+    cursor: pointer;
+}
